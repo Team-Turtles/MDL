@@ -16,7 +16,7 @@ namespace BaseDeDonnees
 {
     class Bdd
     {
-        //hydhgfrsgtuututushtdsomihhhszh
+        //aWOUZEGAGAGA
         // propriétés membres
         //
         private SqlConnection cn;
