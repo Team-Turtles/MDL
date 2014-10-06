@@ -19,7 +19,7 @@ namespace BaseDeDonnees
         //Awoulagagtoubib
         // propriétés membres
         //
-        private int test21;
+        private int test212;
         private SqlConnection cn;
         private SqlCommand UneSqlCommand;
         private SqlDataAdapter UnSqlDataAdapter;
