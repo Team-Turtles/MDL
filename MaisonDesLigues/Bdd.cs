@@ -16,7 +16,7 @@ namespace BaseDeDonnees
 {
     class Bdd
     {
-        //j'aime les chips au nutella!!
+        //Awoulagagtoubib
         // propriétés membres
         //
         private SqlConnection cn;
@@ -35,30 +35,16 @@ namespace BaseDeDonnees
         public Bdd(String UnLogin, String UnPwd)
         {
             try
-            {   /// constructeur du formulaire
-        /// </summary>
-        public FrmPrincipale()
-        {
-            InitializeComponent();
-        }
-        private Bdd UneConnexion;
-        private String TitreApplication;
-        private String IdStatutSelectionne = "";
-        /// <summary>
-        /// création et ouverture d'une connexion vers la base de données sur le chargement du formulaire
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void FrmPrincipale_Load(object sender, EventArgs e)
-        {
-            UneConnexion = ((FrmLogin)Owner).UneConnexion;
-            TitreApplication = ((FrmLogin)Owner).TitreApplication;
-            this.Text = TitreApplication;
-        }
-        /// <summary>
-        /// gestion de l'événement click du bouton quitter.
-        /// Demande de confirmation avant de quitetr l'application.
-        /// </summary>nnectionString, UnLogin, UnPwd));
+            {
+                /// <remarks>on commence par récupérer dans CnString les informations contenues dans le fichier app.config
+                /// pour la connectionString de nom StrConnMdl
+                /// </remarks>
+                ConnectionStringSettings CnString = ConfigurationManager.ConnectionStrings["StrConnMdl"];
+                ///<remarks>
+                /// on va remplacer dans la chaine de connexion les paramètres par le login et le pwd saisis
+                ///dans les zones de texte. Pour ça on va utiliser la méthode Format de la classe String.                /// 
+                /// </remarks>
+                cn = new SqlConnection(string.Format(CnString.ConnectionString, UnLogin, UnPwd));
                 cn.Open();
             }
             catch (SqlException Oex)
@@ -122,7 +108,7 @@ namespace BaseDeDonnees
             Cmd.Parameters.Add("@pTel", SqlDbType.VarChar).Value = pTel;
             Cmd.Parameters.Add("@pMail", SqlDbType.VarChar).Value = pMail;
         }
-    
+
         /// <summary>
         /// Procédure publique qui va appeler la procédure stockée permettant d'inscrire un nouvel intervenant sans nuité
         /// </summary>
@@ -152,8 +138,8 @@ namespace BaseDeDonnees
                 UneSqlCommand = new SqlCommand("PSnouvelintervenant", cn);
                 UneSqlCommand.CommandType = CommandType.StoredProcedure;
                 // début de la transaction SqlServer il vaut mieux gérer les transactions dans l'applicatif que dans la bd dans les procédures stockées.
-               UneSqlTransaction = this.cn.BeginTransaction();
-               this.UneSqlCommand.Transaction = UneSqlTransaction;
+                UneSqlTransaction = this.cn.BeginTransaction();
+                this.UneSqlCommand.Transaction = UneSqlTransaction;
                 // on appelle la procédure ParamCommunsNouveauxParticipants pour charger les paramètres communs aux Participants
                 this.ParamCommunsNouveauxParticipants(UneSqlCommand, pNom, pPrenom, pAdresse1, pAdresse2, pCp, pVille, pTel, pMail);
                 // on complète les paramètres spécifiques à l'intervenant
@@ -168,7 +154,7 @@ namespace BaseDeDonnees
             catch (SqlException Oex)
             {
                 MessageErreur = "Erreur SqlServer \n" + this.GetMessageSql(Oex.Message);
-             }
+            }
             catch (Exception ex)
             {
 
@@ -176,12 +162,12 @@ namespace BaseDeDonnees
             }
             finally
             {
-               if (MessageErreur.Length > 0)
+                if (MessageErreur.Length > 0)
                 {
                     // annulation de la transaction
-                   UneSqlTransaction.Rollback();
+                    UneSqlTransaction.Rollback();
                     // Déclenchement de l'exception
-                   throw new Exception(MessageErreur);
+                    throw new Exception(MessageErreur);
                 }
             }
         }
@@ -202,57 +188,57 @@ namespace BaseDeDonnees
         /// <param name="pLesCategories">tableau contenant la catégorie de chambre pour chaque nuité à réserver</param>
         /// <param name="pLesHotels">tableau contenant l'hôtel pour chaque nuité à réserver</param>
         /// <param name="pLesNuits">tableau contenant l'id de la date d'arrivée pour chaque nuité à réserver</param>
-        public void InscrireIntervenant(String pNom, String pPrenom, String pAdresse1, String pAdresse2, String pCp, String pVille, String pTel, String pMail, Int16 pIdAtelier, String pIdStatut, Collection<string> pLesCategories, Collection<string> pLesHotels, Collection<Int16>pLesNuits)
+        public void InscrireIntervenant(String pNom, String pPrenom, String pAdresse1, String pAdresse2, String pCp, String pVille, String pTel, String pMail, Int16 pIdAtelier, String pIdStatut, Collection<string> pLesCategories, Collection<string> pLesHotels, Collection<Int16> pLesNuits)
         {
             // surcharge de la procédure InscrireIntervenant
-        //    /// <remarks>
-        //    /// procédure qui va  :
-        //    /// 1- faire appel à la procédure stockée PSnouvelintervenant qui insère un enregistrement dans la table participant
-        //    /// 2- va insérer un à 2 enregistrements dans la table CONTENUHEBERGEMENT à l'aide d"une procédure stockée
-        //    /// </remarks>
-        //    /// 
-        // String MessageErreur="";
-        //  try
-        //   {                
-      
-        //         UneSqlCommand = new SqlCommand("nouvelintervenant", cn);
-        //           UneSqlCommand.CommandType = CommandType.StoredProcedure;
-        //       // début de la transactionSqlServer : il vaut mieyx gérer les transactions dans l'applicatif que dans la bd.
-        //        UneSqlTransaction = this.cn.BeginTransaction();
-        //         this.ParamCommunsNouveauxParticipants(UneSqlCommand, pNom, pPrenom, pAdresse1, pAdresse2, pCp, pVille, pTel, pMail);
+            //    /// <remarks>
+            //    /// procédure qui va  :
+            //    /// 1- faire appel à la procédure stockée PSnouvelintervenant qui insère un enregistrement dans la table participant
+            //    /// 2- va insérer un à 2 enregistrements dans la table CONTENUHEBERGEMENT à l'aide d"une procédure stockée
+            //    /// </remarks>
+            //    /// 
+            // String MessageErreur="";
+            //  try
+            //   {                
+
+            //         UneSqlCommand = new SqlCommand("nouvelintervenant", cn);
+            //           UneSqlCommand.CommandType = CommandType.StoredProcedure;
+            //       // début de la transactionSqlServer : il vaut mieyx gérer les transactions dans l'applicatif que dans la bd.
+            //        UneSqlTransaction = this.cn.BeginTransaction();
+            //         this.ParamCommunsNouveauxParticipants(UneSqlCommand, pNom, pPrenom, pAdresse1, pAdresse2, pCp, pVille, pTel, pMail);
 
 
-              //On va créer ici les paramètres spécifiques à l'inscription d'un intervenant qui réserve des nuits d'hôtel.
-             // Paramètre qui stocke les catégories sélectionnées
-       //.....................
-               
-              // Paramètre qui stocke les hotels sélectionnées
-      //...........................
-                
-              // Paramètres qui stocke les nuits sélectionnées
-       
-      //.......................................         
-        //    }
-        //    catch (SqlException Oex)
-        //    {
-        //        //MessageErreur="Erreur Oracle \n" + this.GetMessageOracle(Oex.Message);
-        //        MessageBox.Show(Oex.Message);
-        //    }
-        //    catch (Exception ex)
-        //    {
-                
-        //        MessageErreur= "Autre Erreur, les informations n'ont pas été correctement saisies";
-        //    }
-        //    finally
-        //    {
-        //        if (MessageErreur.Length > 0)
-        //        {
-        //            // annulation de la transaction
-        //            UneSqlTransaction.Rollback();
-        //            // Déclenchement de l'exception
-        //            throw new Exception(MessageErreur);
-        //        }             
-        //    }
+            //On va créer ici les paramètres spécifiques à l'inscription d'un intervenant qui réserve des nuits d'hôtel.
+            // Paramètre qui stocke les catégories sélectionnées
+            //.....................
+
+            // Paramètre qui stocke les hotels sélectionnées
+            //...........................
+
+            // Paramètres qui stocke les nuits sélectionnées
+
+            //.......................................         
+            //    }
+            //    catch (SqlException Oex)
+            //    {
+            //        //MessageErreur="Erreur Oracle \n" + this.GetMessageOracle(Oex.Message);
+            //        MessageBox.Show(Oex.Message);
+            //    }
+            //    catch (Exception ex)
+            //    {
+
+            //        MessageErreur= "Autre Erreur, les informations n'ont pas été correctement saisies";
+            //    }
+            //    finally
+            //    {
+            //        if (MessageErreur.Length > 0)
+            //        {
+            //            // annulation de la transaction
+            //            UneSqlTransaction.Rollback();
+            //            // Déclenchement de l'exception
+            //            throw new Exception(MessageErreur);
+            //        }             
+            //    }
         }
         /// <summary>
         /// fonction permettant de construire un dictionnaire dont l'id est l'id d'une nuité et le contenu une date
