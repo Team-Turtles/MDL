@@ -16,7 +16,7 @@ namespace BaseDeDonnees
 {
     class Bdd
     {
-        //Awoulagagtoubib
+        //j'aime les chips au nutella!!
         // propriétés membres
         //
         private SqlConnection cn;
@@ -35,16 +35,30 @@ namespace BaseDeDonnees
         public Bdd(String UnLogin, String UnPwd)
         {
             try
-            {
-                /// <remarks>on commence par récupérer dans CnString les informations contenues dans le fichier app.config
-                /// pour la connectionString de nom StrConnMdl
-                /// </remarks>
-                ConnectionStringSettings CnString = ConfigurationManager.ConnectionStrings["StrConnMdl"];
-                ///<remarks>
-                /// on va remplacer dans la chaine de connexion les paramètres par le login et le pwd saisis
-                ///dans les zones de texte. Pour ça on va utiliser la méthode Format de la classe String.                /// 
-                /// </remarks>
-                cn = new SqlConnection(string.Format(CnString.ConnectionString, UnLogin, UnPwd));
+            {   /// constructeur du formulaire
+        /// </summary>
+        public FrmPrincipale()
+        {
+            InitializeComponent();
+        }
+        private Bdd UneConnexion;
+        private String TitreApplication;
+        private String IdStatutSelectionne = "";
+        /// <summary>
+        /// création et ouverture d'une connexion vers la base de données sur le chargement du formulaire
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void FrmPrincipale_Load(object sender, EventArgs e)
+        {
+            UneConnexion = ((FrmLogin)Owner).UneConnexion;
+            TitreApplication = ((FrmLogin)Owner).TitreApplication;
+            this.Text = TitreApplication;
+        }
+        /// <summary>
+        /// gestion de l'événement click du bouton quitter.
+        /// Demande de confirmation avant de quitetr l'application.
+        /// </summary>nnectionString, UnLogin, UnPwd));
                 cn.Open();
             }
             catch (SqlException Oex)
