@@ -17,7 +17,7 @@ namespace BaseDeDonnees
     class Bdd
     {
         //
-        // propriétés membbbres
+        // propriétés membres
         //
         private SqlConnection cn;
         private SqlCommand UneSqlCommand;
