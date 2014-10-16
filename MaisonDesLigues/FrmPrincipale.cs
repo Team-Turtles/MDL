@@ -56,6 +56,7 @@ namespace MaisonDesLigues
                     break;
                 case "RadLicencie":
                     //this.GererInscriptionLicencie();
+                    gbComplementlicencie.Visible = true;
                     break;
                 case "RadIntervenant":
                     this.GererInscriptionIntervenant();
@@ -278,6 +279,16 @@ namespace MaisonDesLigues
         private void PanNuiteIntervenant_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void gbComplementlicencie_VisibleChanged(object sender, EventArgs e)
+        {
+            DataTable dt = UneConnexion.Obtenirqualite();
+            cbQualitéLicencié.DataSource = dt;
+            cbQualitéLicencié.DisplayMember = "libellequalite";
+            cbQualitéLicencié.ValueMember = "id";
+
+            
         }
      
 

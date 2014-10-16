@@ -18,9 +18,6 @@ namespace BaseDeDonnees
     {
         // propriétés membres
         //
-        private int test212;
-        private string test;
-        private int test212;
         private SqlConnection cn;
         private SqlCommand UneSqlCommand;
         private SqlDataAdapter UnSqlDataAdapter;
@@ -277,6 +274,19 @@ namespace BaseDeDonnees
         {
 
 
+        }
+
+        public DataTable Obtenirqualite()
+        {
+            String req = "select id, libellequalite from qualite";
+            this.UneSqlCommand = new SqlCommand(req, cn);
+            UnSqlDataAdapter = new SqlDataAdapter();
+            UnSqlDataAdapter.SelectCommand = this.UneSqlCommand;
+            UneDataTable = new DataTable();
+            //Le DataAdapter UnSqlDataAdapter va se charger ensuite de remplir la DataTable 
+            UnSqlDataAdapter.Fill(UneDataTable);
+
+            return UneDataTable;
         }
 
     }
