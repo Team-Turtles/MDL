@@ -274,6 +274,11 @@ namespace MaisonDesLigues
         {
             BtnEnregistrerIntervenant.Enabled = VerifBtnEnregistreIntervenant();
         }
+
+        private void PanNuiteIntervenant_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
      
 
 
