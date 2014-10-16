@@ -228,6 +228,8 @@ namespace MaisonDesLigues
                             CategoriesSelectionnees.Add(((ResaNuite)UnControle).GetTypeChambreSelectionnee());
                             HotelsSelectionnes.Add(((ResaNuite)UnControle).GetHotelSelectionne());
                             NuitsSelectionnes.Add(((ResaNuite)UnControle).IdNuite);
+
+                            Utilitaire.EffacerInfos(TabInscription);
                          }
 
                     }
@@ -239,15 +241,19 @@ namespace MaisonDesLigues
                     {
                         UneConnexion.InscrireIntervenant(TxtNom.Text, TxtPrenom.Text, TxtAdr1.Text, TxtAdr2.Text != "" ? TxtAdr2.Text : "", TxtCp.Text, TxtVille.Text, txtTel.MaskCompleted ? txtTel.Text : "", TxtMail.Text != "" ? TxtMail.Text : "", System.Convert.ToInt16(CmbAtelierIntervenant.SelectedValue), this.IdStatutSelectionne, CategoriesSelectionnees, HotelsSelectionnes, NuitsSelectionnes);
                         MessageBox.Show("Inscription intervenant avec nuitées effectuée");
+                        Utilitaire.EffacerInfos(TabInscription);
                     }
                 }
                 else
                 { // inscription sans les nuitées
                       UneConnexion.InscrireIntervenant(TxtNom.Text, TxtPrenom.Text, TxtAdr1.Text, TxtAdr2.Text != "" ? TxtAdr2.Text : "", TxtCp.Text, TxtVille.Text, txtTel.MaskCompleted ? txtTel.Text :"", TxtMail.Text != "" ? TxtMail.Text : "", System.Convert.ToInt16(CmbAtelierIntervenant.SelectedValue), this.IdStatutSelectionne);
                       MessageBox.Show("Inscription intervenant sans nuitée effectuée");
+                      Utilitaire.EffacerInfos(TabInscription);
                     
                 }
 
+
+               
                 
             }
             catch (Exception Ex)
