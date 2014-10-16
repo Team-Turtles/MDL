@@ -11,14 +11,14 @@ using System.Text.RegularExpressions;  // bibliothèque pour les expressions ré
 using MaisonDesLigues;
 
 
-//Comm 1 Turtles1
+//Comm 1 Turtles1 2
 namespace BaseDeDonnees
 {
     class Bdd
     {
-        //Awoulagagtoubib
         // propriétés membres
         //
+        private string test;
         private SqlConnection cn;
         private SqlCommand UneSqlCommand;
         private SqlDataAdapter UnSqlDataAdapter;
