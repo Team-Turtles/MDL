@@ -49,7 +49,7 @@ namespace MaisonDesLigues
 
         private void RadTypeParticipant_Changed(object sender, EventArgs e)
         {
-            switch (((RadioButton)sender).Name)
+                 switch (((RadioButton)sender).Name)
             {
                 case "RadBenevole":
                     this.GererInscriptionBenevole();
@@ -279,6 +279,58 @@ namespace MaisonDesLigues
         private void CmbAtelierIntervenant_TextChanged(object sender, EventArgs e)
         {
             BtnEnregistrerIntervenant.Enabled = VerifBtnEnregistreIntervenant();
+        }
+
+        private void rb_vacation_CheckedChanged(object sender, EventArgs e)
+        {
+            gb_choix_ca.Visible = true;
+        }
+
+        private void rb_theme_CheckedChanged(object sender, EventArgs e)
+        {
+            gb_choix_ca.Visible = true;
+        }
+
+        private void rb_atelier_CheckedChanged(object sender, EventArgs e)
+        {
+            gb_choix_ca.Visible = false;
+        }
+
+        private void tab_AtThVa_Enter(object sender, EventArgs e)
+        {
+            this.cb_atelier.DataSource = UneConnexion.ObtenirAteliers();
+            this.cb_atelier.DisplayMember = "libelleatelier";
+            this.cb_atelier.ValueMember = "id";
+        }
+
+        private void cb_atelier_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bt_enre_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bt_ajouterVacation_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bt_ajouterTheme_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tab_AtThVa_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bt_raz_ca_Click(object sender, EventArgs e)
+        {
+
         }
      
 
