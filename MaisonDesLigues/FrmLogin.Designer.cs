@@ -53,7 +53,7 @@
             this.TxtMdp.PasswordChar = '*';
             this.TxtMdp.Size = new System.Drawing.Size(168, 20);
             this.TxtMdp.TabIndex = 7;
-            this.TxtMdp.Text = "slam2015";
+            this.TxtMdp.Text = "mdl4";
             // 
             // LblMdp
             // 
@@ -81,7 +81,7 @@
             this.TxtLogin.Name = "TxtLogin";
             this.TxtLogin.Size = new System.Drawing.Size(168, 20);
             this.TxtLogin.TabIndex = 11;
-            this.TxtLogin.Text = "sa";
+            this.TxtLogin.Text = "mdl4";
             this.TxtLogin.TextChanged += new System.EventHandler(this.ControleValide);
             // 
             // label3

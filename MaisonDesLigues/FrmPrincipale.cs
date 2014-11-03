@@ -287,7 +287,6 @@ namespace MaisonDesLigues
             cbQualitéLicencié.DataSource = dt;
             cbQualitéLicencié.DisplayMember = "libellequalite";
             cbQualitéLicencié.ValueMember = "id";
-
             
         }
      
