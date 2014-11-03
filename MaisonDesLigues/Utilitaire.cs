@@ -132,5 +132,54 @@ namespace MaisonDesLigues
             }
             return i;
         }
+
+
+        /// <summary>
+        /// Par Fabien
+        /// Efface les Informations des comboBox, listBox,... d'un element de la classe control et ses sous elements
+        /// </summary>
+        /// <param name="tp">Control dans lequel on souhaite remettre tout a zero.</param>
+        /// 
+        public static void EffacerInfos(Control tp)
+        {
+
+            foreach (Control ct in tp.Controls)
+            {
+
+                if (ct is TextBoxBase)
+                {
+
+                    (ct as TextBoxBase).Clear();
+
+                }
+                else if (ct is ComboBox)
+                {
+
+                    (ct as ComboBox).Text = "Choisir";
+
+                }
+                else if (ct is RadioButton)
+                {
+
+                    (ct as RadioButton).Checked = false;
+
+                }
+                else if(ct is CheckBox)
+                {
+
+                    (ct as CheckBox).Checked = false;
+
+                }
+
+                else
+                {
+
+                    EffacerInfos(ct);
+
+                }
+
+            }
+
+        }
     }
 }
