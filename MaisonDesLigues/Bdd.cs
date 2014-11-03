@@ -18,7 +18,6 @@ namespace BaseDeDonnees
     {
         // propriétés membres
         //
-        private string test;
         private SqlConnection cn;
         private SqlCommand UneSqlCommand;
         private SqlDataAdapter UnSqlDataAdapter;
@@ -151,10 +150,11 @@ namespace BaseDeDonnees
                 // fin de la transaction. Si on arrive à ce point, c'est qu'aucune exception n'a été levée
                 UneSqlTransaction.Commit();
             }
-            catch (SqlException Oex)
+           catch (SqlException Oex)
             {
                 MessageErreur = "Erreur SqlServer \n" + this.GetMessageSql(Oex.Message);
              }
+             
             catch (Exception ex)
             {
 
@@ -271,9 +271,79 @@ namespace BaseDeDonnees
         /// <param name="pDateNaissance">mail du bénévole</param>
         /// <param name="pNumeroLicence">numéro de licence du bénévole ou null</param>
         /// <param name="pDateBenevolat">collection des id des dates où le bénévole sera présent</param>
-        public void InscrireBenevole(String pNom, String pPrenom, String pAdresse1, String pAdresse2, String pCp, String pVille, String pTel, String pMail, DateTime pDateNaissance, Int64? pNumeroLicence, Collection<Int16> pDateBenevolat)
+        public void InscrireBenevole(String pNom, String pPrenom, String pAdresse1, String pAdresse2, String pCp, String pVille, String pTel, String pMail, DateTime pDateNaissance, String license, Collection<Int16> pDateBenevolat)
         {
+            string id = "";
+            String MessageErreur = "";
+            bool test = true;
+            try
+            {
+                UneSqlCommand = new SqlCommand("PSnouvelbenevole", cn);
+                UneSqlCommand.CommandType = CommandType.StoredProcedure;
+                // début de la transaction SqlServer il vaut mieux gérer les transactions dans l'applicatif que dans la bd dans les procédures stockées.
+                UneSqlTransaction = this.cn.BeginTransaction();
+                this.UneSqlCommand.Transaction = UneSqlTransaction;
+                // on appelle la procédure ParamCommunsNouveauxParticipants pour charger les paramètres communs aux Participants
+                this.ParamCommunsNouveauxParticipants(UneSqlCommand, pNom, pPrenom, pAdresse1, pAdresse2, pCp, pVille, pTel, pMail);
+                // on complète les paramètres spécifiques à l'intervenant
+                this.UneSqlCommand.Parameters.Add("@ptype", SqlDbType.VarChar).Value = "B";   // "B" pour le type du participant (Benevole)
+                this.UneSqlCommand.Parameters.Add("@pDateBenevole", SqlDbType.VarChar).Value = pDateNaissance;
+                this.UneSqlCommand.Parameters.Add("@newId", SqlDbType.Int).Direction = ParameterDirection.Output;
+                //execution
+                UneSqlCommand.ExecuteNonQuery();
 
+                id = UneSqlCommand.Parameters["@newId"].Value.ToString();
+                
+               
+                // fin de la transaction. Si on arrive à ce point, c'est qu'aucune exception n'a été levée
+                UneSqlTransaction.Commit(); 
+            }
+            catch (SqlException Oex)
+            {
+                MessageErreur = "Erreur SqlServer \n" + this.GetMessageSql(Oex.Message);
+            }
+            catch (Exception ex)
+            {
+
+                MessageErreur = ex.Message + "Autre Erreur, les informations n'ont pas été correctement saisies";
+            }
+            finally
+            {
+                if (MessageErreur.Length > 0)
+                {
+                    // annulation de la transaction
+                    UneSqlTransaction.Rollback();
+                    // Déclenchement de l'exception
+                    throw new Exception(MessageErreur);
+                    test = false;
+                }
+                
+            }
+
+            // Insertion des jours de benevolat
+            if (test == true)
+            {
+                foreach (Int16 elt in pDateBenevolat)
+                {
+
+                    try
+                    {
+                        string req = "Insert into etrepresent values('" + id + "','" + elt.ToString() + "')";
+                        UneSqlCommand = new SqlCommand(req, cn);
+                        UneSqlTransaction = this.cn.BeginTransaction();
+                        this.UneSqlCommand.Transaction = UneSqlTransaction;
+                        UneSqlCommand.ExecuteNonQuery();
+                        UneSqlTransaction.Commit();
+
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new Exception(ex + "\n\nErreur lors de l'ajout des dates de benevola dans etreprésent");
+                        UneSqlTransaction.Rollback();
+                    }
+
+                }
+            }
 
         }
 
