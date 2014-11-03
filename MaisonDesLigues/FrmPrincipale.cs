@@ -151,7 +151,10 @@ namespace MaisonDesLigues
                     IdDatesSelectionnees.Add(System.Convert.ToInt16((UnControle.Name.Split('_'))[1]));
                 }
             }
-            UneConnexion.InscrireBenevole(TxtNom.Text, TxtPrenom.Text, TxtAdr1.Text, TxtAdr2.Text != "" ? TxtAdr2.Text : null, TxtCp.Text, TxtVille.Text, txtTel.MaskCompleted ? txtTel.Text : null, TxtMail.Text != "" ? TxtMail.Text : null, System.Convert.ToDateTime(TxtDateNaissance.Text), NumeroLicence, IdDatesSelectionnees);
+            UneConnexion.InscrireBenevole(TxtNom.Text, TxtPrenom.Text, TxtAdr1.Text, TxtAdr2.Text != "" ? TxtAdr2.Text : "", TxtCp.Text, TxtVille.Text, txtTel.MaskCompleted ? txtTel.Text : "", TxtMail.Text != "" ? TxtMail.Text : "", System.Convert.ToDateTime(TxtDateNaissance.Text), TxtLicenceBenevole.Text, IdDatesSelectionnees);
+            MessageBox.Show("Benevole créer");
+            Utilitaire.EffacerInfos(TabInscription);
+            RadBenevole.Checked = true;
 
         }
         /// <summary>
@@ -230,6 +233,8 @@ namespace MaisonDesLigues
                             NuitsSelectionnes.Add(((ResaNuite)UnControle).IdNuite);
 
                             Utilitaire.EffacerInfos(TabInscription);
+                            RdbNuiteIntervenantNon.Checked = true;
+                            RadIntervenant.Checked = true;
                          }
 
                     }
@@ -242,6 +247,8 @@ namespace MaisonDesLigues
                         UneConnexion.InscrireIntervenant(TxtNom.Text, TxtPrenom.Text, TxtAdr1.Text, TxtAdr2.Text != "" ? TxtAdr2.Text : "", TxtCp.Text, TxtVille.Text, txtTel.MaskCompleted ? txtTel.Text : "", TxtMail.Text != "" ? TxtMail.Text : "", System.Convert.ToInt16(CmbAtelierIntervenant.SelectedValue), this.IdStatutSelectionne, CategoriesSelectionnees, HotelsSelectionnes, NuitsSelectionnes);
                         MessageBox.Show("Inscription intervenant avec nuitées effectuée");
                         Utilitaire.EffacerInfos(TabInscription);
+                        RdbNuiteIntervenantNon.Checked = true;
+                        RadIntervenant.Checked = true;
                     }
                 }
                 else
@@ -249,6 +256,8 @@ namespace MaisonDesLigues
                       UneConnexion.InscrireIntervenant(TxtNom.Text, TxtPrenom.Text, TxtAdr1.Text, TxtAdr2.Text != "" ? TxtAdr2.Text : "", TxtCp.Text, TxtVille.Text, txtTel.MaskCompleted ? txtTel.Text :"", TxtMail.Text != "" ? TxtMail.Text : "", System.Convert.ToInt16(CmbAtelierIntervenant.SelectedValue), this.IdStatutSelectionne);
                       MessageBox.Show("Inscription intervenant sans nuitée effectuée");
                       Utilitaire.EffacerInfos(TabInscription);
+                      RdbNuiteIntervenantNon.Checked = true;
+                      RadIntervenant.Checked = true;
                     
                 }
 
