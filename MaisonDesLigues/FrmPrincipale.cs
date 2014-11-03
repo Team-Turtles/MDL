@@ -229,6 +229,8 @@ namespace MaisonDesLigues
                             CategoriesSelectionnees.Add(((ResaNuite)UnControle).GetTypeChambreSelectionnee());
                             HotelsSelectionnes.Add(((ResaNuite)UnControle).GetHotelSelectionne());
                             NuitsSelectionnes.Add(((ResaNuite)UnControle).IdNuite);
+
+                            Utilitaire.EffacerInfos(TabInscription);
                          }
 
                     }
@@ -240,15 +242,19 @@ namespace MaisonDesLigues
                     {
                         UneConnexion.InscrireIntervenant(TxtNom.Text, TxtPrenom.Text, TxtAdr1.Text, TxtAdr2.Text != "" ? TxtAdr2.Text : "", TxtCp.Text, TxtVille.Text, txtTel.MaskCompleted ? txtTel.Text : "", TxtMail.Text != "" ? TxtMail.Text : "", System.Convert.ToInt16(CmbAtelierIntervenant.SelectedValue), this.IdStatutSelectionne, CategoriesSelectionnees, HotelsSelectionnes, NuitsSelectionnes);
                         MessageBox.Show("Inscription intervenant avec nuitées effectuée");
+                        Utilitaire.EffacerInfos(TabInscription);
                     }
                 }
                 else
                 { // inscription sans les nuitées
                       UneConnexion.InscrireIntervenant(TxtNom.Text, TxtPrenom.Text, TxtAdr1.Text, TxtAdr2.Text != "" ? TxtAdr2.Text : "", TxtCp.Text, TxtVille.Text, txtTel.MaskCompleted ? txtTel.Text :"", TxtMail.Text != "" ? TxtMail.Text : "", System.Convert.ToInt16(CmbAtelierIntervenant.SelectedValue), this.IdStatutSelectionne);
                       MessageBox.Show("Inscription intervenant sans nuitée effectuée");
+                      Utilitaire.EffacerInfos(TabInscription);
                     
                 }
 
+                
+               
                 
             }
             catch (Exception Ex)
@@ -275,7 +281,59 @@ namespace MaisonDesLigues
         {
             BtnEnregistrerIntervenant.Enabled = VerifBtnEnregistreIntervenant();
         }
+     
+        private void rb_vacation_CheckedChanged(object sender, EventArgs e)
+        {
+            gb_choix_ca.Visible = true;
+        }
 
+        private void rb_theme_CheckedChanged(object sender, EventArgs e)
+        {
+            gb_choix_ca.Visible = true;
+        }
+
+        private void rb_atelier_CheckedChanged(object sender, EventArgs e)
+        {
+            gb_choix_ca.Visible = false;
+        }
+
+        private void tab_AtThVa_Enter(object sender, EventArgs e)
+        {
+            this.cb_atelier.DataSource = UneConnexion.ObtenirAteliers();
+            this.cb_atelier.DisplayMember = "libelleatelier";
+            this.cb_atelier.ValueMember = "id";
+        }
+
+        private void cb_atelier_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bt_enre_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bt_ajouterVacation_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bt_ajouterTheme_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tab_AtThVa_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bt_raz_ca_Click(object sender, EventArgs e)
+        {
+
+        }
+     
         private void PanNuiteIntervenant_Paint(object sender, PaintEventArgs e)
         {
 

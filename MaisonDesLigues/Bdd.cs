@@ -289,5 +289,131 @@ namespace BaseDeDonnees
             return UneDataTable;
         }
 
+        public DataTable ObtenirAteliers()
+        {
+            String req = "select * from atelier";
+            this.UneSqlCommand = new SqlCommand(req, cn);
+            UnSqlDataAdapter = new SqlDataAdapter();
+            UnSqlDataAdapter.SelectCommand = this.UneSqlCommand;
+            UneDataTable = new DataTable();
+            UnSqlDataAdapter.Fill(UneDataTable);
+            return UneDataTable;
+        }
+
+
+        //bouton ajouter Atelier
+        public void AjouterAtelier(string pId, string pIdParticipant, string pLibelleAtelier, string pNbPlacesMaxi)
+        {
+            String MessageErreur = "";
+            try
+            {
+                this.UneSqlCommand = new SqlCommand("spajoutatelier", cn);
+                this.UneSqlCommand.CommandType = CommandType.StoredProcedure;
+                UneSqlTransaction = this.cn.BeginTransaction();
+                this.UneSqlCommand.Transaction = UneSqlTransaction;
+                this.UneSqlCommand.Parameters.Add("@pId", SqlDbType.VarChar).Value = pId;
+                this.UneSqlCommand.Parameters.Add("@pIdParticipant", SqlDbType.VarChar).Value = pIdParticipant;
+                this.UneSqlCommand.Parameters.Add("@pLibelleAtelier", SqlDbType.VarChar).Value = pLibelleAtelier;
+                this.UneSqlCommand.Parameters.Add("@pNbPlacesMaxi", SqlDbType.VarChar).Value = pNbPlacesMaxi;
+                UneSqlCommand.ExecuteNonQuery();
+                this.UneSqlTransaction.Commit();
+            }
+            catch (SqlException exSql)
+            {
+                MessageErreur = "Erreur SqlServer \n" + exSql.Message.ToString();
+            }
+            catch (Exception ex)
+            {
+                MessageErreur = ex.Message;
+            }
+            finally
+            {
+                if (MessageErreur.Length > 0)
+                {
+                    UneSqlTransaction.Rollback();
+                    throw new Exception(MessageErreur);
+                }
+            }
+        }
+
+
+        //bouton ajouter Vacation
+        public void AjouterVacation(string pIdAtelier, string pIdVacation, string pDateHeureDebut, string pDateHeureFin)
+        {
+            String MessageErreur = "";
+            try
+            {
+                this.UneSqlCommand = new SqlCommand("spajoutvacation", cn);
+                this.UneSqlCommand.CommandType = CommandType.StoredProcedure;
+                UneSqlTransaction = this.cn.BeginTransaction();
+                this.UneSqlCommand.Transaction = UneSqlTransaction;
+                this.UneSqlCommand.Parameters.Add("@pIdAtelier", SqlDbType.VarChar).Value = pIdAtelier;
+                this.UneSqlCommand.Parameters.Add("@pIdVacation", SqlDbType.VarChar).Value = pIdVacation;
+                this.UneSqlCommand.Parameters.Add("@pDateHeureDebut", SqlDbType.VarChar).Value = pDateHeureDebut;
+                this.UneSqlCommand.Parameters.Add("@pDateHeureFin", SqlDbType.VarChar).Value = pDateHeureFin;
+                UneSqlCommand.ExecuteNonQuery();
+                this.UneSqlTransaction.Commit();
+            }
+            catch (SqlException exSql)
+            {
+                MessageErreur = "Erreur SqlServer \n" + exSql.Message.ToString();
+            }
+            catch (Exception ex)
+            {
+                MessageErreur = ex.Message;
+            }
+            finally
+            {
+                if (MessageErreur.Length > 0)
+                {
+                    UneSqlTransaction.Rollback();
+                    throw new Exception(MessageErreur);
+                }
+            }
+        }
+
+
+        //bouton ajouter Theme
+        public void AjouterTheme(string pIdAtelier, string pIdTheme, string pLibelleTheme)
+        {
+            String MessageErreur = "";
+            try
+            {
+                this.UneSqlCommand = new SqlCommand("spajouttheme", cn);
+                this.UneSqlCommand.CommandType = CommandType.StoredProcedure;
+                UneSqlTransaction = this.cn.BeginTransaction();
+                this.UneSqlCommand.Transaction = UneSqlTransaction;
+                this.UneSqlCommand.Parameters.Add("@pIdAtelier", SqlDbType.VarChar).Value = pIdAtelier;
+                this.UneSqlCommand.Parameters.Add("@pIdTheme", SqlDbType.VarChar).Value = pIdTheme;
+                this.UneSqlCommand.Parameters.Add("@pLibelleTheme", SqlDbType.VarChar).Value = pLibelleTheme;
+                UneSqlCommand.ExecuteNonQuery();
+                this.UneSqlTransaction.Commit();
+            }
+            catch (SqlException exSql)
+            {
+                MessageErreur = "Erreur SqlServer \n" + exSql.Message.ToString();
+            }
+            catch (Exception ex)
+            {
+                MessageErreur = ex.Message;
+            }
+            finally
+            {
+                if (MessageErreur.Length > 0)
+                {
+                    UneSqlTransaction.Rollback();
+                    throw new Exception(MessageErreur);
+                }
+            }
+        }
+
+
+        //bouton RAZ
+        public void RemiseAZero()
+        {
+
+        }
+
+
     }
 }
