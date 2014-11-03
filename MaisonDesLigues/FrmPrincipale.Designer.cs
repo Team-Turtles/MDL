@@ -40,11 +40,11 @@
             this.rbNuite2 = new System.Windows.Forms.RadioButton();
             this.rbNuite1 = new System.Windows.Forms.RadioButton();
             this.panAtelierLicencie = new System.Windows.Forms.Panel();
-            this.label12 = new System.Windows.Forms.Label();
+            this.lblMAtelier = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
+            this.lblMNumLicence = new System.Windows.Forms.Label();
             this.cbQualitéLicencié = new System.Windows.Forms.ComboBox();
-            this.label10 = new System.Windows.Forms.Label();
+            this.lblMQualité = new System.Windows.Forms.Label();
             this.GrpBenevole = new System.Windows.Forms.GroupBox();
             this.BtnEnregistreBenevole = new System.Windows.Forms.Button();
             this.PanelDispoBenevole = new System.Windows.Forms.Panel();
@@ -119,11 +119,11 @@
             this.gbComplementlicencie.Controls.Add(this.gbReservationAcompanat);
             this.gbComplementlicencie.Controls.Add(this.groupBox1);
             this.gbComplementlicencie.Controls.Add(this.panAtelierLicencie);
-            this.gbComplementlicencie.Controls.Add(this.label12);
+            this.gbComplementlicencie.Controls.Add(this.lblMAtelier);
             this.gbComplementlicencie.Controls.Add(this.textBox1);
-            this.gbComplementlicencie.Controls.Add(this.label11);
+            this.gbComplementlicencie.Controls.Add(this.lblMNumLicence);
             this.gbComplementlicencie.Controls.Add(this.cbQualitéLicencié);
-            this.gbComplementlicencie.Controls.Add(this.label10);
+            this.gbComplementlicencie.Controls.Add(this.lblMQualité);
             this.gbComplementlicencie.Location = new System.Drawing.Point(557, 229);
             this.gbComplementlicencie.Name = "gbComplementlicencie";
             this.gbComplementlicencie.Size = new System.Drawing.Size(651, 320);
@@ -224,14 +224,14 @@
             this.panAtelierLicencie.Size = new System.Drawing.Size(142, 163);
             this.panAtelierLicencie.TabIndex = 5;
             // 
-            // label12
+            // lblMAtelier
             // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(18, 120);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(41, 13);
-            this.label12.TabIndex = 4;
-            this.label12.Text = "Ateliers";
+            this.lblMAtelier.AutoSize = true;
+            this.lblMAtelier.Location = new System.Drawing.Point(18, 120);
+            this.lblMAtelier.Name = "lblMAtelier";
+            this.lblMAtelier.Size = new System.Drawing.Size(41, 13);
+            this.lblMAtelier.TabIndex = 4;
+            this.lblMAtelier.Text = "Ateliers";
             // 
             // textBox1
             // 
@@ -240,14 +240,14 @@
             this.textBox1.Size = new System.Drawing.Size(130, 20);
             this.textBox1.TabIndex = 3;
             // 
-            // label11
+            // lblMNumLicence
             // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(18, 79);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(94, 13);
-            this.label11.TabIndex = 2;
-            this.label11.Text = "numero de licence";
+            this.lblMNumLicence.AutoSize = true;
+            this.lblMNumLicence.Location = new System.Drawing.Point(18, 79);
+            this.lblMNumLicence.Name = "lblMNumLicence";
+            this.lblMNumLicence.Size = new System.Drawing.Size(94, 13);
+            this.lblMNumLicence.TabIndex = 2;
+            this.lblMNumLicence.Text = "numero de licence";
             // 
             // cbQualitéLicencié
             // 
@@ -257,14 +257,14 @@
             this.cbQualitéLicencié.Size = new System.Drawing.Size(178, 21);
             this.cbQualitéLicencié.TabIndex = 1;
             // 
-            // label10
+            // lblMQualité
             // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(18, 33);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(46, 13);
-            this.label10.TabIndex = 0;
-            this.label10.Text = "Qualitée";
+            this.lblMQualité.AutoSize = true;
+            this.lblMQualité.Location = new System.Drawing.Point(18, 33);
+            this.lblMQualité.Name = "lblMQualité";
+            this.lblMQualité.Size = new System.Drawing.Size(46, 13);
+            this.lblMQualité.TabIndex = 0;
+            this.lblMQualité.Text = "Qualitée";
             // 
             // GrpBenevole
             // 
@@ -745,11 +745,11 @@
         private System.Windows.Forms.RadioButton rbNuite2;
         private System.Windows.Forms.RadioButton rbNuite1;
         private System.Windows.Forms.Panel panAtelierLicencie;
-        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label lblMAtelier;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label lblMNumLicence;
         private System.Windows.Forms.ComboBox cbQualitéLicencié;
-        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label lblMQualité;
 
 
     }
