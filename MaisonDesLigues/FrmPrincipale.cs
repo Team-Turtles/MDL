@@ -345,8 +345,47 @@ namespace MaisonDesLigues
             cbQualitéLicencié.DataSource = dt;
             cbQualitéLicencié.DisplayMember = "libellequalite";
             cbQualitéLicencié.ValueMember = "id";
+
+            
             
         }
+
+        private void rbNuite1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (((RadioButton)sender).Name == "rbNuite1")
+            {
+                PanNuiteIntervenant.Visible = true;
+                if (panNuiteLicencie.Controls.Count == 0) // on charge les nuites possibles possibles et on les affiche
+                {
+                    DataTable LesDATENUITEEs = UneConnexion.ObtenirDonnees("VDATENUITEE02");
+                    //foreach(Dat
+                    Dictionary<Int16, String> LesNuites = UneConnexion.ObtenirDatesNuitees();
+                    int i = 0;
+                    foreach (KeyValuePair<Int16, String> UneNuite in LesNuites)
+                    {
+                        ComposantNuite.ResaNuite unResaNuit = new ResaNuite(UneConnexion.ObtenirDonnees("VHOTEL01"), (UneConnexion.ObtenirDonnees("VCATEGORIECHAMBRE01")), UneNuite.Value, UneNuite.Key);
+                        unResaNuit.Left = 5;
+                        unResaNuit.Top = 5 + (24 * i++);
+                        unResaNuit.Visible = true;
+                        //unResaNuit.click += new System.EventHandler(ComposantNuite_StateChanged);
+                        panNuiteLicencie.Controls.Add(unResaNuit);
+                    }
+
+                }
+
+            }
+            else
+            {
+                panNuiteLicencie.Visible = false;
+
+            }
+        }
+
+        private void mikaBtLicencie_Click(object sender, EventArgs e)
+        {
+
+        }
+
      
 
 

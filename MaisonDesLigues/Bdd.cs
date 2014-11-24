@@ -276,6 +276,12 @@ namespace BaseDeDonnees
 
         }
 
+        public void InscrireBenevole(String pNom, String pPrenom, String pAdresse1, String pAdresse2, String pCp, String pVille, String pTel, String pMail, DateTime pDateNaissance, Int64? pNumeroLicence, Collection<Int16> pDateBenevolat)
+        {
+
+
+        }
+
         public DataTable Obtenirqualite()
         {
             String req = "select id, libellequalite from qualite";
@@ -291,7 +297,7 @@ namespace BaseDeDonnees
 
         public DataTable ObtenirAteliers()
         {
-            String req = "select * from atelier";
+            String req = "select ID, LibelleAtelier from atelier";
             this.UneSqlCommand = new SqlCommand(req, cn);
             UnSqlDataAdapter = new SqlDataAdapter();
             UnSqlDataAdapter.SelectCommand = this.UneSqlCommand;

@@ -31,16 +31,20 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPrincipale));
             this.TabInscription = new System.Windows.Forms.TabPage();
             this.gbComplementlicencie = new System.Windows.Forms.GroupBox();
+            this.gbAtelier = new System.Windows.Forms.GroupBox();
+            this.cbAtel6 = new System.Windows.Forms.CheckBox();
+            this.cbAtel5 = new System.Windows.Forms.CheckBox();
+            this.cbAtel4 = new System.Windows.Forms.CheckBox();
+            this.cbAtel3 = new System.Windows.Forms.CheckBox();
+            this.cbAtel2 = new System.Windows.Forms.CheckBox();
+            this.cbAtel1 = new System.Windows.Forms.CheckBox();
             this.gbReservationAcompanat = new System.Windows.Forms.GroupBox();
-            this.panReservationAcompagnant = new System.Windows.Forms.Panel();
             this.rbReserv2 = new System.Windows.Forms.RadioButton();
             this.rbREserv1 = new System.Windows.Forms.RadioButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.panNuiteLicencie = new System.Windows.Forms.Panel();
             this.rbNuite2 = new System.Windows.Forms.RadioButton();
             this.rbNuite1 = new System.Windows.Forms.RadioButton();
-            this.panAtelierLicencie = new System.Windows.Forms.Panel();
-            this.lblMAtelier = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.lblMNumLicence = new System.Windows.Forms.Label();
             this.cbQualitéLicencié = new System.Windows.Forms.ComboBox();
@@ -108,8 +112,10 @@
             this.lblLibelleAtelier_ca = new System.Windows.Forms.Label();
             this.rb_vacation_ca = new System.Windows.Forms.RadioButton();
             this.rb_theme = new System.Windows.Forms.RadioButton();
+            this.mikaBtLicencie = new System.Windows.Forms.Button();
             this.TabInscription.SuspendLayout();
             this.gbComplementlicencie.SuspendLayout();
+            this.gbAtelier.SuspendLayout();
             this.gbReservationAcompanat.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.GrpBenevole.SuspendLayout();
@@ -143,25 +149,12 @@
             this.TabInscription.Text = "Inscription";
             this.TabInscription.UseVisualStyleBackColor = true;
             // 
-            // GrpBenevole
+            // gbComplementlicencie
             // 
-            this.GrpBenevole.Controls.Add(this.BtnEnregistreBenevole);
-            this.GrpBenevole.Controls.Add(this.PanelDispoBenevole);
-            this.GrpBenevole.Controls.Add(this.TxtLicenceBenevole);
-            this.GrpBenevole.Controls.Add(this.label9);
-            this.GrpBenevole.Controls.Add(this.label8);
-            this.GrpBenevole.Controls.Add(this.TxtDateNaissance);
-            this.GrpBenevole.Location = new System.Drawing.Point(607, 23);
-            this.GrpBenevole.Name = "GrpBenevole";
-            this.GrpBenevole.Size = new System.Drawing.Size(564, 174);
-            this.GrpBenevole.TabIndex = 23;
-            this.GrpBenevole.TabStop = false;
-            this.GrpBenevole.Text = "Disponibilités Bénévole";
-            this.GrpBenevole.Visible = false;
+            this.gbComplementlicencie.Controls.Add(this.mikaBtLicencie);
+            this.gbComplementlicencie.Controls.Add(this.gbAtelier);
             this.gbComplementlicencie.Controls.Add(this.gbReservationAcompanat);
             this.gbComplementlicencie.Controls.Add(this.groupBox1);
-            this.gbComplementlicencie.Controls.Add(this.panAtelierLicencie);
-            this.gbComplementlicencie.Controls.Add(this.lblMAtelier);
             this.gbComplementlicencie.Controls.Add(this.textBox1);
             this.gbComplementlicencie.Controls.Add(this.lblMNumLicence);
             this.gbComplementlicencie.Controls.Add(this.cbQualitéLicencié);
@@ -175,46 +168,94 @@
             this.gbComplementlicencie.Visible = false;
             this.gbComplementlicencie.VisibleChanged += new System.EventHandler(this.gbComplementlicencie_VisibleChanged);
             // 
-            // BtnEnregistreBenevole
+            // gbAtelier
             // 
-            this.BtnEnregistreBenevole.Enabled = false;
-            this.BtnEnregistreBenevole.Location = new System.Drawing.Point(321, 143);
-            this.BtnEnregistreBenevole.Name = "BtnEnregistreBenevole";
-            this.BtnEnregistreBenevole.Size = new System.Drawing.Size(133, 25);
-            this.BtnEnregistreBenevole.TabIndex = 1;
-            this.BtnEnregistreBenevole.Text = "Enregistrer";
-            this.BtnEnregistreBenevole.UseVisualStyleBackColor = true;
-            this.BtnEnregistreBenevole.Click += new System.EventHandler(this.BtnEnregistreBenevole_Click);
-            this.gbReservationAcompanat.Controls.Add(this.panReservationAcompagnant);
+            this.gbAtelier.Controls.Add(this.cbAtel6);
+            this.gbAtelier.Controls.Add(this.cbAtel5);
+            this.gbAtelier.Controls.Add(this.cbAtel4);
+            this.gbAtelier.Controls.Add(this.cbAtel3);
+            this.gbAtelier.Controls.Add(this.cbAtel2);
+            this.gbAtelier.Controls.Add(this.cbAtel1);
+            this.gbAtelier.Location = new System.Drawing.Point(11, 115);
+            this.gbAtelier.Name = "gbAtelier";
+            this.gbAtelier.Size = new System.Drawing.Size(164, 195);
+            this.gbAtelier.TabIndex = 32;
+            this.gbAtelier.TabStop = false;
+            this.gbAtelier.Text = "Atelier";
+            // 
+            // cbAtel6
+            // 
+            this.cbAtel6.AutoSize = true;
+            this.cbAtel6.Location = new System.Drawing.Point(10, 136);
+            this.cbAtel6.Name = "cbAtel6";
+            this.cbAtel6.Size = new System.Drawing.Size(133, 17);
+            this.cbAtel6.TabIndex = 5;
+            this.cbAtel6.Text = "Developement durable";
+            this.cbAtel6.UseVisualStyleBackColor = true;
+            // 
+            // cbAtel5
+            // 
+            this.cbAtel5.AutoSize = true;
+            this.cbAtel5.Location = new System.Drawing.Point(10, 113);
+            this.cbAtel5.Name = "cbAtel5";
+            this.cbAtel5.Size = new System.Drawing.Size(48, 17);
+            this.cbAtel5.TabIndex = 4;
+            this.cbAtel5.Text = "IFFE";
+            this.cbAtel5.UseVisualStyleBackColor = true;
+            // 
+            // cbAtel4
+            // 
+            this.cbAtel4.AutoSize = true;
+            this.cbAtel4.Location = new System.Drawing.Point(10, 90);
+            this.cbAtel4.Name = "cbAtel4";
+            this.cbAtel4.Size = new System.Drawing.Size(142, 17);
+            this.cbAtel4.TabIndex = 3;
+            this.cbAtel4.Text = "Observatoire des metiers";
+            this.cbAtel4.UseVisualStyleBackColor = true;
+            // 
+            // cbAtel3
+            // 
+            this.cbAtel3.AutoSize = true;
+            this.cbAtel3.Location = new System.Drawing.Point(10, 67);
+            this.cbAtel3.Name = "cbAtel3";
+            this.cbAtel3.Size = new System.Drawing.Size(131, 17);
+            this.cbAtel3.TabIndex = 2;
+            this.cbAtel3.Text = "Les outils a disposition";
+            this.cbAtel3.UseVisualStyleBackColor = true;
+            // 
+            // cbAtel2
+            // 
+            this.cbAtel2.AutoSize = true;
+            this.cbAtel2.Location = new System.Drawing.Point(10, 42);
+            this.cbAtel2.Name = "cbAtel2";
+            this.cbAtel2.Size = new System.Drawing.Size(134, 17);
+            this.cbAtel2.TabIndex = 1;
+            this.cbAtel2.Text = "Fonctionement du club";
+            this.cbAtel2.UseVisualStyleBackColor = true;
+            // 
+            // cbAtel1
+            // 
+            this.cbAtel1.AutoSize = true;
+            this.cbAtel1.Location = new System.Drawing.Point(10, 19);
+            this.cbAtel1.Name = "cbAtel1";
+            this.cbAtel1.Size = new System.Drawing.Size(122, 17);
+            this.cbAtel1.TabIndex = 0;
+            this.cbAtel1.Text = "Le club et son projet";
+            this.cbAtel1.UseVisualStyleBackColor = true;
+            // 
+            // gbReservationAcompanat
+            // 
             this.gbReservationAcompanat.Controls.Add(this.rbReserv2);
             this.gbReservationAcompanat.Controls.Add(this.rbREserv1);
             this.gbReservationAcompanat.Location = new System.Drawing.Point(276, 8);
             this.gbReservationAcompanat.Name = "gbReservationAcompanat";
-            this.gbReservationAcompanat.Size = new System.Drawing.Size(497, 151);
+            this.gbReservationAcompanat.Size = new System.Drawing.Size(497, 119);
             this.gbReservationAcompanat.TabIndex = 31;
             this.gbReservationAcompanat.TabStop = false;
             this.gbReservationAcompanat.Text = "Reservation Acompagnat(e)";
             // 
-            // PanelDispoBenevole
+            // rbReserv2
             // 
-            this.PanelDispoBenevole.Location = new System.Drawing.Point(28, 84);
-            this.PanelDispoBenevole.Name = "PanelDispoBenevole";
-            this.PanelDispoBenevole.Size = new System.Drawing.Size(251, 84);
-            this.PanelDispoBenevole.TabIndex = 21;
-            this.panReservationAcompagnant.Location = new System.Drawing.Point(6, 43);
-            this.panReservationAcompagnant.Name = "panReservationAcompagnant";
-            this.panReservationAcompagnant.Size = new System.Drawing.Size(395, 102);
-            this.panReservationAcompagnant.TabIndex = 24;
-            this.panReservationAcompagnant.Visible = false;
-            // 
-            // TxtLicenceBenevole
-            // 
-            this.TxtLicenceBenevole.Location = new System.Drawing.Point(136, 58);
-            this.TxtLicenceBenevole.Mask = "000000000000";
-            this.TxtLicenceBenevole.Name = "TxtLicenceBenevole";
-            this.TxtLicenceBenevole.Size = new System.Drawing.Size(147, 20);
-            this.TxtLicenceBenevole.TabIndex = 19;
-            this.TxtLicenceBenevole.KeyUp += new System.Windows.Forms.KeyEventHandler(this.ChkDateBenevole_CheckedChanged);
             this.rbReserv2.AutoSize = true;
             this.rbReserv2.Checked = true;
             this.rbReserv2.Location = new System.Drawing.Point(92, 15);
@@ -225,14 +266,8 @@
             this.rbReserv2.Text = "Non";
             this.rbReserv2.UseVisualStyleBackColor = true;
             // 
-            // label9
+            // rbREserv1
             // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(25, 35);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(105, 13);
-            this.label9.TabIndex = 18;
-            this.label9.Text = "Date de naissance : ";
             this.rbREserv1.AutoSize = true;
             this.rbREserv1.Location = new System.Drawing.Point(23, 16);
             this.rbREserv1.Name = "rbREserv1";
@@ -241,49 +276,28 @@
             this.rbREserv1.Text = "Oui";
             this.rbREserv1.UseVisualStyleBackColor = true;
             // 
-            // label8
+            // groupBox1
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(25, 65);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(105, 13);
-            this.label8.TabIndex = 17;
-            this.label8.Text = "Numéro de licence : ";
             this.groupBox1.Controls.Add(this.panNuiteLicencie);
             this.groupBox1.Controls.Add(this.rbNuite2);
             this.groupBox1.Controls.Add(this.rbNuite1);
-            this.groupBox1.Location = new System.Drawing.Point(184, 165);
+            this.groupBox1.Location = new System.Drawing.Point(184, 134);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(497, 167);
+            this.groupBox1.Size = new System.Drawing.Size(497, 150);
             this.groupBox1.TabIndex = 30;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Nuités";
             // 
-            // TxtDateNaissance
+            // panNuiteLicencie
             // 
-            this.TxtDateNaissance.Location = new System.Drawing.Point(136, 32);
-            this.TxtDateNaissance.Mask = "00/00/0000";
-            this.TxtDateNaissance.Name = "TxtDateNaissance";
-            this.TxtDateNaissance.Size = new System.Drawing.Size(147, 20);
-            this.TxtDateNaissance.TabIndex = 2;
-            this.TxtDateNaissance.Text = "15081985";
-            this.TxtDateNaissance.ValidatingType = typeof(System.DateTime);
-            this.TxtDateNaissance.KeyUp += new System.Windows.Forms.KeyEventHandler(this.ChkDateBenevole_CheckedChanged);
-            this.panNuiteLicencie.Location = new System.Drawing.Point(3, 43);
+            this.panNuiteLicencie.Location = new System.Drawing.Point(1, 38);
             this.panNuiteLicencie.Name = "panNuiteLicencie";
-            this.panNuiteLicencie.Size = new System.Drawing.Size(490, 102);
-            this.panNuiteLicencie.TabIndex = 24;
+            this.panNuiteLicencie.Size = new System.Drawing.Size(466, 102);
+            this.panNuiteLicencie.TabIndex = 25;
             this.panNuiteLicencie.Visible = false;
             // 
-            // CmdQuitter
+            // rbNuite2
             // 
-            this.CmdQuitter.Location = new System.Drawing.Point(493, 180);
-            this.CmdQuitter.Name = "CmdQuitter";
-            this.CmdQuitter.Size = new System.Drawing.Size(144, 36);
-            this.CmdQuitter.TabIndex = 22;
-            this.CmdQuitter.Text = "Quitter";
-            this.CmdQuitter.UseVisualStyleBackColor = true;
-            this.CmdQuitter.Click += new System.EventHandler(this.CmdQuitter_Click);
             this.rbNuite2.AutoSize = true;
             this.rbNuite2.Checked = true;
             this.rbNuite2.Location = new System.Drawing.Point(92, 15);
@@ -294,17 +308,8 @@
             this.rbNuite2.Text = "Non";
             this.rbNuite2.UseVisualStyleBackColor = true;
             // 
-            // GrpTypeParticipant
+            // rbNuite1
             // 
-            this.GrpTypeParticipant.Controls.Add(this.RadLicencie);
-            this.GrpTypeParticipant.Controls.Add(this.RadBenevole);
-            this.GrpTypeParticipant.Controls.Add(this.RadIntervenant);
-            this.GrpTypeParticipant.Location = new System.Drawing.Point(23, 6);
-            this.GrpTypeParticipant.Name = "GrpTypeParticipant";
-            this.GrpTypeParticipant.Size = new System.Drawing.Size(453, 58);
-            this.GrpTypeParticipant.TabIndex = 21;
-            this.GrpTypeParticipant.TabStop = false;
-            this.GrpTypeParticipant.Text = "Tupe Participant";
             this.rbNuite1.AutoSize = true;
             this.rbNuite1.Location = new System.Drawing.Point(23, 16);
             this.rbNuite1.Name = "rbNuite1";
@@ -312,22 +317,7 @@
             this.rbNuite1.TabIndex = 22;
             this.rbNuite1.Text = "Oui";
             this.rbNuite1.UseVisualStyleBackColor = true;
-            // 
-            // panAtelierLicencie
-            // 
-            this.panAtelierLicencie.Location = new System.Drawing.Point(18, 147);
-            this.panAtelierLicencie.Name = "panAtelierLicencie";
-            this.panAtelierLicencie.Size = new System.Drawing.Size(142, 163);
-            this.panAtelierLicencie.TabIndex = 5;
-            // 
-            // lblMAtelier
-            // 
-            this.lblMAtelier.AutoSize = true;
-            this.lblMAtelier.Location = new System.Drawing.Point(18, 120);
-            this.lblMAtelier.Name = "lblMAtelier";
-            this.lblMAtelier.Size = new System.Drawing.Size(41, 13);
-            this.lblMAtelier.TabIndex = 4;
-            this.lblMAtelier.Text = "Ateliers";
+            this.rbNuite1.CheckedChanged += new System.EventHandler(this.rbNuite1_CheckedChanged);
             // 
             // textBox1
             // 
@@ -491,39 +481,6 @@
             this.RadIntervenant.Text = "Intervenant";
             this.RadIntervenant.UseVisualStyleBackColor = true;
             this.RadIntervenant.CheckedChanged += new System.EventHandler(this.RadTypeParticipant_Changed);
-            this.RadLicencie.AutoSize = true;
-            this.RadLicencie.Location = new System.Drawing.Point(195, 19);
-            this.RadLicencie.Name = "RadLicencie";
-            this.RadLicencie.Size = new System.Drawing.Size(65, 17);
-            this.RadLicencie.TabIndex = 20;
-            this.RadLicencie.TabStop = true;
-            this.RadLicencie.Text = "Licencié";
-            this.RadLicencie.UseVisualStyleBackColor = true;
-            this.RadLicencie.CheckedChanged += new System.EventHandler(this.RadTypeParticipant_Changed);
-            // 
-            // RadBenevole
-            // 
-            this.RadBenevole.AutoSize = true;
-            this.RadBenevole.Location = new System.Drawing.Point(351, 19);
-            this.RadBenevole.Name = "RadBenevole";
-            this.RadBenevole.Size = new System.Drawing.Size(70, 17);
-            this.RadBenevole.TabIndex = 19;
-            this.RadBenevole.TabStop = true;
-            this.RadBenevole.Text = "Bénévole";
-            this.RadBenevole.UseVisualStyleBackColor = true;
-            this.RadBenevole.CheckedChanged += new System.EventHandler(this.RadTypeParticipant_Changed);
-            // 
-            // RadIntervenant
-            // 
-            this.RadIntervenant.AutoSize = true;
-            this.RadIntervenant.Location = new System.Drawing.Point(44, 19);
-            this.RadIntervenant.Name = "RadIntervenant";
-            this.RadIntervenant.Size = new System.Drawing.Size(79, 17);
-            this.RadIntervenant.TabIndex = 18;
-            this.RadIntervenant.TabStop = true;
-            this.RadIntervenant.Text = "Intervenant";
-            this.RadIntervenant.UseVisualStyleBackColor = true;
-            this.RadIntervenant.CheckedChanged += new System.EventHandler(this.RadTypeParticipant_Changed);
             // 
             // GrpIdentite
             // 
@@ -639,11 +596,6 @@
             this.label5.Size = new System.Drawing.Size(35, 13);
             this.label5.TabIndex = 4;
             this.label5.Text = "Ville : ";
-            this.TxtPrenom.Location = new System.Drawing.Point(279, 25);
-            this.TxtPrenom.Name = "TxtPrenom";
-            this.TxtPrenom.Size = new System.Drawing.Size(142, 20);
-            this.TxtPrenom.TabIndex = 7;
-            this.TxtPrenom.Text = "Patrick";
             // 
             // label4
             // 
@@ -653,50 +605,9 @@
             this.label4.Size = new System.Drawing.Size(30, 13);
             this.label4.TabIndex = 3;
             this.label4.Text = "CP : ";
-            this.TxtNom.Location = new System.Drawing.Point(81, 25);
-            this.TxtNom.Name = "TxtNom";
-            this.TxtNom.Size = new System.Drawing.Size(142, 20);
-            this.TxtNom.TabIndex = 6;
-            this.TxtNom.Text = "Dumoulin";
             // 
             // label3
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(20, 53);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(45, 13);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Adresse";
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(191, 110);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(35, 13);
-            this.label5.TabIndex = 4;
-            this.label5.Text = "Ville : ";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(229, 28);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(43, 13);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Prénom";
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(35, 107);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(30, 13);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "CP : ";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(27, 25);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(38, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Nom : ";
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(20, 53);
             this.label3.Name = "label3";
@@ -850,7 +761,7 @@
             this.tab_AtThVa.Location = new System.Drawing.Point(4, 22);
             this.tab_AtThVa.Name = "tab_AtThVa";
             this.tab_AtThVa.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_AtThVa.Size = new System.Drawing.Size(956, 579);
+            this.tab_AtThVa.Size = new System.Drawing.Size(1234, 579);
             this.tab_AtThVa.TabIndex = 1;
             this.tab_AtThVa.Text = "Ateliers, thèmes, vacations";
             this.tab_AtThVa.UseVisualStyleBackColor = true;
@@ -1082,6 +993,17 @@
             this.rb_theme.UseVisualStyleBackColor = true;
             this.rb_theme.CheckedChanged += new System.EventHandler(this.rb_theme_CheckedChanged);
             // 
+            // mikaBtLicencie
+            // 
+            this.mikaBtLicencie.Enabled = false;
+            this.mikaBtLicencie.Location = new System.Drawing.Point(430, 286);
+            this.mikaBtLicencie.Name = "mikaBtLicencie";
+            this.mikaBtLicencie.Size = new System.Drawing.Size(133, 25);
+            this.mikaBtLicencie.TabIndex = 33;
+            this.mikaBtLicencie.Text = "Enregistrer";
+            this.mikaBtLicencie.UseVisualStyleBackColor = true;
+            this.mikaBtLicencie.Click += new System.EventHandler(this.mikaBtLicencie_Click);
+            // 
             // FrmPrincipale
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1094,6 +1016,8 @@
             this.TabInscription.ResumeLayout(false);
             this.gbComplementlicencie.ResumeLayout(false);
             this.gbComplementlicencie.PerformLayout();
+            this.gbAtelier.ResumeLayout(false);
+            this.gbAtelier.PerformLayout();
             this.gbReservationAcompanat.ResumeLayout(false);
             this.gbReservationAcompanat.PerformLayout();
             this.groupBox1.ResumeLayout(false);
@@ -1192,19 +1116,24 @@
         private System.Windows.Forms.Button bt_ajouterTheme;
         private System.Windows.Forms.GroupBox gbComplementlicencie;
         private System.Windows.Forms.GroupBox gbReservationAcompanat;
-        private System.Windows.Forms.Panel panReservationAcompagnant;
         private System.Windows.Forms.RadioButton rbReserv2;
         private System.Windows.Forms.RadioButton rbREserv1;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Panel panNuiteLicencie;
         private System.Windows.Forms.RadioButton rbNuite2;
         private System.Windows.Forms.RadioButton rbNuite1;
-        private System.Windows.Forms.Panel panAtelierLicencie;
-        private System.Windows.Forms.Label lblMAtelier;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label lblMNumLicence;
         private System.Windows.Forms.ComboBox cbQualitéLicencié;
         private System.Windows.Forms.Label lblMQualité;
+        private System.Windows.Forms.GroupBox gbAtelier;
+        private System.Windows.Forms.CheckBox cbAtel6;
+        private System.Windows.Forms.CheckBox cbAtel5;
+        private System.Windows.Forms.CheckBox cbAtel4;
+        private System.Windows.Forms.CheckBox cbAtel3;
+        private System.Windows.Forms.CheckBox cbAtel2;
+        private System.Windows.Forms.CheckBox cbAtel1;
+        private System.Windows.Forms.Panel panNuiteLicencie;
+        private System.Windows.Forms.Button mikaBtLicencie;
 
 
     }
